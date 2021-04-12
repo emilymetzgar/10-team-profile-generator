@@ -48,7 +48,7 @@ const selections = {
   message: "Please select one of the roles to add",
   type: "list",
   name: "role",
-  choices: ["Add Manager Role", "Add Engineer Role", "Add Intern Role", "No Roles to Add, Exit"], //do i need an employee or exit or none here?
+  choices: ["Add Manager Role", "Add Engineer Role", "Add Intern Role", "No More Roles to Add, Exit"], 
 };
 
 const manager = {
