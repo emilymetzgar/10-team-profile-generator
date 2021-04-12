@@ -1,5 +1,5 @@
 {
-  "name": "static-site",
+  "name": "10-team-profile-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1",
+    "inquirer": "^6.5.2",
     "inquirerer": "^0.1.3"
   }
 }
