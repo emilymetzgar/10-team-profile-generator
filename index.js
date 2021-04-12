@@ -12,7 +12,7 @@ const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "profile_generated");//dirname, variable that exists in node that holds the path, path is a library and dirname is a variable in node
 const outputPath = path.join(OUTPUT_DIR, "profile.html");
-const generate = require("./generate");//render can be changed and lib can be changed to util
+const generate = require("./utils/generate");//render can be changed and lib can be changed to util
 const { prompt } = require("inquirer");
 
 const team = [];
