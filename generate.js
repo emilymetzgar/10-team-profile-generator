@@ -1,29 +1,33 @@
+//requires this library and has to be on this file via require
 const path = require("path");
 const fs = require("fs");
 
-const generatedHtmlDir = path.resolve(__dirname, "../html");
+const generatedHtmlDir = path.resolve(__dirname, "../html");//resolve resolves the path 
+//const can be variable, variable can't change, 
 
-const render = profile => {
-  const html = [];
 
-  html.push(...profile
+const generate = profile => {//arrow function exporting from this file
+  
+  const html = [];//empty array so that the html will generate depending on what user inputs
+
+  html.push(...profile//array methods
     .filter(employee => employee.getRole() === "Manager")
-    .map(manager => renderManager(manager))
+    .map(manager => generateManager(manager))//can change if needed to get
   );
   html.push(...profile
     .filter(employee => employee.getRole() === "Engineer")
-    .map(engineer => renderEngineer(engineer))
+    .map(engineer => generateEngineer(engineer))
   );
   html.push(...profile
     .filter(employee => employee.getRole() === "Intern")
-    .map(intern => renderIntern(intern))
+    .map(intern => generateIntern(intern))
   );
 
-  return renderTeam(html.join(""));
+  return generateTeam(html.join(""));
 
 };
-
-const renderManager = manager => {
+//t
+const generateManager = manager => {
   let generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "manager.html"), "utf8");
   generatedHtml = replaceInfo(generatedHtml, "name", manager.getName());
   generatedHtml = replaceInfo(generatedHtml, "role", manager.getRole());
@@ -33,7 +37,7 @@ const renderManager = manager => {
   return generatedHtml;
 };
 
-const renderEngineer = engineer => {
+const generateEngineer = engineer => {
   let generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "engineer.html"), "utf8");
   generatedHtml = replaceInfo(generatedHtml, "name", engineer.getName());
   generatedHtml = replaceInfo(generatedHtml, "role", engineer.getRole());
@@ -43,8 +47,8 @@ const renderEngineer = engineer => {
   return generatedHtml;
 };
 
-const renderIntern = intern => {
-  let generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "intern.html"), "utf8");
+const generateIntern = intern => { 
+  let generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "intern.html"), "utf8");//tells file what the encoding is, 
   generatedHtml = replaceInfo(generatedHtml, "name", intern.getName());
   generatedHtml = replaceInfo(generatedHtml, "role", intern.getRole());
   generatedHtml = replaceInfo(generatedHtml, "email", intern.getEmail());
@@ -53,7 +57,7 @@ const renderIntern = intern => {
   return generatedHtml;
 };
 
-const renderTeam = html => {
+const generateTeam = html => {
   const generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "employee.html"), "utf8");
   return replaceInfo(generatedHtml, "profile", html);
 };
@@ -63,4 +67,4 @@ const replaceInfo = (generatedHtml, placeholderInfo, value) => {
   return generatedHtml.replace(orderOfInfo, value);
 };
 
-module.exports = render;
+module.exports = generate;//change here too, exporting this function

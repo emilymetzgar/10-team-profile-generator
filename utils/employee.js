@@ -1,3 +1,5 @@
+
+//parent class to extend over child classes
 class Employee {
     constructor(name, id, email) {
       this.name = name;

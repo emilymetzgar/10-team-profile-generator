@@ -1,5 +1,5 @@
-const Engineer = require("../lib/engineer")
-const Employee = require("../lib/employee")
+const Engineer = require("../utils/engineer")
+const Employee = require("../utils/employee")
 
 
 test("Can set GitHub via constructor argument", () => {

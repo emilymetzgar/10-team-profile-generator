@@ -1,4 +1,4 @@
-const Employee = require("./Employee");
+const Employee = require("./employee");
 	
 
 class Intern extends Employee {
@@ -13,4 +13,4 @@ class Intern extends Employee {
     return "Intern";
   }
 }
-module.exports = Intern;
+module.exports = Intern; //exports it from here, only if it is imported, and it is imported with require

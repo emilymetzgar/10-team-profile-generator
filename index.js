@@ -1,6 +1,8 @@
-const Manager = require("./lib/manager");
-const Engineer = require("./lib/engineer");
-const Intern = require("./lib/intern");
+
+//constructor functions to require
+const Manager = require("./utils/manager");
+const Engineer = require("./utils/engineer");
+const Intern = require("./utils/intern");
 
 //do i need to add const Employee?
 
@@ -8,16 +10,16 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "profile_generated");
+const OUTPUT_DIR = path.resolve(__dirname, "profile_generated");//dirname, variable that exists in node that holds the path, path is a library and dirname is a variable in node
 const outputPath = path.join(OUTPUT_DIR, "profile.html");
-const render = require("./lib/render");
+const generate = require("./generate");//render can be changed and lib can be changed to util
 const { prompt } = require("inquirer");
 
 const team = [];
 let employee = [];
 
 
-//the functions below will confirm user input
+//the functions below will confirm user input the validator functions, 
 const confirmId = (input) => {
   if (isNaN(input) || input === "" || input === "0") {
     return "Please enter a number greater than zero";
@@ -55,21 +57,21 @@ const manager = {
   message: "What is the manager's office number?",
   type: "input",
   name: "officeNumber",
-  confirm: confirmInput,
+  validate: confirmInput,
 };
 
 const engineer = {
   message: "What is the engineer's GitHub username?",
   type: "input",
   name: "GitHub",
-  confirm: confirmInput,
+  validate: confirmInput,
 };
 
 const intern = {
   message: "What school did the intern attend?",
   type: "input",
   name: "school",
-  confirm: confirmInput,
+  validate: confirmInput,
 };
 
 //function to get employee data for all roles
@@ -80,25 +82,25 @@ function gatherEmployeeData() {
       message: "What is the employee's name?",
       type: "input",
       name: "name",
-      confirm: confirmInput,
+      validate: confirmInput,
     },
     {
       message: "What is the employee's ID number?",
       type: "input",
       name: "id",
-      confirm: confirmId,
+      validate: confirmId,
     },
     {
       message: "What is the employee's email address?",
       type: "input",
       name: "email",
-      confirm: confirmEmail,
+      validate: confirmEmail,
     },
   ];
 
   inquirer.prompt(selections).then((response) => {
-    switch (response.role) {
-      case "Add Manager Role":
+    switch (response.role) { //switch statement, a type of conditional statement, different way to write it
+      case "Add Manager Role": 
         addManager();
         break;
       case "Add Engineer Role":
@@ -115,7 +117,7 @@ function gatherEmployeeData() {
 }
 
 function getTeam() {
-  const html = render(team);
+  const html = generate(team);
   fs.writeFile(outputPath, html, (err) => {
     if (err) throw err;
     console.log("Success! Your employee team is created!");
