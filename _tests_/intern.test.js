@@ -1,5 +1,4 @@
 const Intern = require("../utils/intern")
-const Employee = require("../utils/employee")
 
 
 test("Can set school via constructor argument", () => {

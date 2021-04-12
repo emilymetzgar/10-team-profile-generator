@@ -1,6 +1,5 @@
 const Manager = require("../utils/manager");
 
-const Employee = require("../utils/employee");
 
 
 test("Can set office number via constructor argument", () => {
