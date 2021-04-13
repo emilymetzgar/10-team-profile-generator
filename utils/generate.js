@@ -63,8 +63,8 @@ const generateTeam = html => {
 };
 
 const replaceInfo = (generatedHtml, placeholderInfo, value) => {
-  const orderOfInfo = new RegExp("{{ " + placeholderInfo + " }}", "gm");
-  return generatedHtml.replace(orderOfInfo, value);
+  const changeReplaceInfo = RegExp ("{{ " + placeholderInfo + " }}", "gm");
+  return generatedHtml.replace(changeReplaceInfo, value);
 };
 
 module.exports = generate;//change here too, exporting this function
