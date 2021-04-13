@@ -5,14 +5,14 @@ const fs = require("fs");
 const generatedHtmlDir = path.resolve(__dirname, "../html");//resolve resolves the path 
 //const can be variable, variable can't change, 
 
-
-const generate = profile => {//arrow function exporting from this file
+//arrow function exporting from this file
+const generate = profile => {
   
-  const html = [];//empty array so that the html will generate depending on what user inputs
-
-  html.push(...profile//array methods
+  const html = []; //empty array so that the html will generate depending on what user inputs
+//array methods
+  html.push(...profile
     .filter(employee => employee.getRole() === "Manager")
-    .map(manager => generateManager(manager))//can change if needed to get
+    .map(manager => generateManager(manager)) //can change if needed to get
   );
   html.push(...profile
     .filter(employee => employee.getRole() === "Engineer")

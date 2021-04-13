@@ -109,7 +109,7 @@ function gatherEmployeeData() {
       case "Add Intern Role":
         addIntern();
         break;
-      case "No Roles to Add, Exit":
+      case "No More Roles to Add, Exit":
         getTeam();
         break;
     }

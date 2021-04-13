@@ -15,8 +15,8 @@
     "jest": "^26.6.3"
   },
   "directories": {
-    "lib": "lib",
-    "test": "tests"
+    "utils": "utils",
+    "test": "_tests_"
   },
   "devDependencies": {},
   "repository": {
