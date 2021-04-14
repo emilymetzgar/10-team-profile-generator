@@ -1,5 +1,7 @@
-
 //parent class to extend over child classes
+//all classes will access this data, and then be customized
+//to grab specific data for their classes 
+
 class Employee {
     constructor(name, id, email) {
       this.name = name;

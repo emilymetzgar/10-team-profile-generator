@@ -1,4 +1,4 @@
-//requires this library and has to be on this file via require
+//requires this library and has to be on this file via require in order to access appropriate files via paths
 const path = require("path");
 const fs = require("fs");
 
@@ -8,8 +8,10 @@ const generatedHtmlDir = path.resolve(__dirname, "../html");//resolve resolves t
 //arrow function exporting from this file
 const generate = profile => {
   
-  const html = []; //empty array so that the html will generate depending on what user inputs
+const html = []; //empty array so that the html will generate depending on what user inputs
 //array methods
+//Each one will iterate over an array and perform a transformation or computation. 
+//Each will return a new array based on the result of the function
   html.push(...profile
     .filter(employee => employee.getRole() === "Manager")
     .map(manager => generateManager(manager)) //can change if needed to get
@@ -26,7 +28,8 @@ const generate = profile => {
   return generateTeam(html.join(""));
 
 };
-//t
+//arrow function that insertss info in html based off user input in command line
+//information gets generated on html via paths and resolve resolves the path
 const generateManager = manager => {
   let generatedHtml = fs.readFileSync(path.resolve(generatedHtmlDir, "manager.html"), "utf8");
   generatedHtml = replaceInfo(generatedHtml, "name", manager.getName());
@@ -67,4 +70,4 @@ const replaceInfo = (generatedHtml, placeholderInfo, value) => {
   return generatedHtml.replace(changeReplaceInfo, value);
 };
 
-module.exports = generate;//change here too, exporting this function
+module.exports = generate;//all of this exports onto team profile 

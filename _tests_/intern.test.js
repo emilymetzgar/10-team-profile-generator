@@ -1,3 +1,6 @@
+//tests that access the classes in the utils folder
+//gets user input and runs the test that the data is going where it is supposed to
+
 const Intern = require("../utils/intern")
 
 

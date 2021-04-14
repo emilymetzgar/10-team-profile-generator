@@ -1,6 +1,9 @@
+//parent class to extend over child classes
+//all classes will access this data, and then be customized
+//to grab specific data for their classes 
+
 const Employee = require("./employee");
 	
-
 class Intern extends Employee {
   constructor(name, id, email, school) {
     super(name, id, email);
