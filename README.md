@@ -17,7 +17,7 @@ A command-line application that dynamically generates a professional Team Profil
 
 ![A screenshot of the application](./assets/images/screenshot.PNG)
 
-link to demo: https://www.youtube.com/watch?v=TpNejxzZDBw
+link to demo: https://www.youtube.com/watch?v=QAHYvfa5yQQ
 
 ## Credits
 Emily Metzgar
