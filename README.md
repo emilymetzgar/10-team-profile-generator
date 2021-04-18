@@ -15,9 +15,9 @@ node index.js
 ## Usage 
 A command-line application that dynamically generates a professional Team Profile Generator.
 
-![A screenshot of the application](./assets/screenshot.PNG)
+![A screenshot of the application](./assets/images/screenshot.PNG)
 
-link to demo: https://youtu.be/zkhbAhQyr0I
+link to demo: https://www.youtube.com/watch?v=TpNejxzZDBw
 
 ## Credits
 Emily Metzgar
